@@ -3,7 +3,7 @@ package com.zoeyun.swift.sdk.common.redis.lock;
 
 import com.github.jedis.lock.JedisLock;
 import com.sun.istack.internal.NotNull;
-import com.zoeyun.swift.sdk.common.exception.PayRuntimeException;
+import com.zoeyun.swift.sdk.common.exception.SdkRuntimeException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.util.Pool;
 
@@ -28,10 +28,10 @@ public class JedisDistributedLock implements Lock {
     public void lock() {
         try (Jedis jedis = jedisPool.getResource()) {
             if (!lock.acquire(jedis)) {
-                throw new PayRuntimeException("acquire timeouted");
+                throw new SdkRuntimeException("acquire timeouted");
             }
         } catch (InterruptedException e) {
-            throw new PayRuntimeException("lock failed", e);
+            throw new SdkRuntimeException("lock failed", e);
         }
     }
 
@@ -39,7 +39,7 @@ public class JedisDistributedLock implements Lock {
     public void lockInterruptibly() throws InterruptedException {
         try (Jedis jedis = jedisPool.getResource()) {
             if (!lock.acquire(jedis)) {
-                throw new PayRuntimeException("acquire timeouted");
+                throw new SdkRuntimeException("acquire timeouted");
             }
         }
     }
@@ -49,7 +49,7 @@ public class JedisDistributedLock implements Lock {
         try (Jedis jedis = jedisPool.getResource()) {
             return lock.acquire(jedis);
         } catch (InterruptedException e) {
-            throw new PayRuntimeException("lock failed", e);
+            throw new SdkRuntimeException("lock failed", e);
         }
     }
 
@@ -70,6 +70,6 @@ public class JedisDistributedLock implements Lock {
     @NotNull
     @Override
     public Condition newCondition() {
-        throw new PayRuntimeException("unsupported method");
+        throw new SdkRuntimeException("unsupported method");
     }
 }

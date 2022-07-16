@@ -2,7 +2,7 @@ package com.zoeyun.swift.sdk.common.utils;
 
 import com.google.common.collect.Lists;
 import com.zoeyun.swift.sdk.common.annotation.Required;
-import com.zoeyun.swift.sdk.common.exception.PayErrorException;
+import com.zoeyun.swift.sdk.common.exception.SdkErrorException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class BeanUtils {
      *
      * @param bean 要检查的bean对象
      */
-    public static void checkRequiredFields(Object bean) throws PayErrorException {
+    public static void checkRequiredFields(Object bean) throws SdkErrorException {
         List<String> requiredFields = Lists.newArrayList();
 
         List<Field> fields = new ArrayList<>(Arrays.asList(bean.getClass().getDeclaredFields()));
@@ -50,7 +50,7 @@ public class BeanUtils {
         if (!requiredFields.isEmpty()) {
             String msg = String.format("必填字段【%s】必须提供值！", requiredFields);
             log.debug(msg);
-            throw new PayErrorException(msg);
+            throw new SdkErrorException(msg);
         }
     }
 }
