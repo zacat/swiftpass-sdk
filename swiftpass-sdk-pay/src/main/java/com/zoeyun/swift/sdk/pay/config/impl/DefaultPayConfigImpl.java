@@ -8,8 +8,8 @@ import java.io.Serializable;
 @Data
 public class DefaultPayConfigImpl implements PayConfig, Serializable {
 
-    private static final String DEFAULT_PAY_BASE_URL = "https://faas.mypays.cn";
-    private static final String DEFAULT_SANDBOX_PAY_BASE_URL = "http://test.mypays.cn";
+    private static final String DEFAULT_PAY_BASE_URL = "https://pay.swiftpass.cn/pay/gateway";
+    private static final String DEFAULT_SANDBOX_PAY_BASE_URL = "https://pay.swiftpass.cn/pay/gateway";
 
     protected volatile String appId;
     protected volatile String mchId;

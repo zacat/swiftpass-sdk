@@ -166,6 +166,13 @@ public abstract class BasePayResult implements Serializable {
         sign = readXmlString(d, "sign");
     }
 
+    protected static Boolean readXmlBoolean(Node d, String tagName) {
+        String content = readXmlString(d, tagName);
+        if (content == null || content.trim().length() == 0) {
+            return null;
+        }
+        return Boolean.parseBoolean(content);
+    }
     protected static Integer readXmlInteger(Node d, String tagName) {
         String content = readXmlString(d, tagName);
         if (content == null || content.trim().length() == 0) {
@@ -211,6 +218,15 @@ public abstract class BasePayResult implements Serializable {
         }
 
         return Integer.parseInt(content);
+    }
+
+    protected static Boolean readXmlBoolean(Document d, String tagName) {
+        String content = readXmlString(d, tagName);
+        if (content == null || content.trim().length() == 0) {
+            return null;
+        }
+
+        return Boolean.parseBoolean(content);
     }
 
     protected static Long readXmlLong(Document d, String tagName) {
