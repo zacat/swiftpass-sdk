@@ -2,8 +2,8 @@ package com.zoeyun.swift.sdk.common.redis.lock;
 
 
 import com.github.jedis.lock.JedisLock;
-import com.sun.istack.internal.NotNull;
 import com.zoeyun.swift.sdk.common.exception.SdkRuntimeException;
+import lombok.NonNull;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.util.Pool;
 
@@ -54,7 +54,7 @@ public class JedisDistributedLock implements Lock {
     }
 
     @Override
-    public boolean tryLock(long l, @NotNull TimeUnit timeUnit) throws InterruptedException {
+    public boolean tryLock(long l, @NonNull TimeUnit timeUnit) throws InterruptedException {
         try (Jedis jedis = jedisPool.getResource()) {
             return lock.acquire(jedis);
         }
@@ -67,7 +67,7 @@ public class JedisDistributedLock implements Lock {
         }
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Condition newCondition() {
         throw new SdkRuntimeException("unsupported method");

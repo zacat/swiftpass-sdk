@@ -1,7 +1,6 @@
 package com.zoeyun.swift.sdk.common.redis.lock;
 
 
-import com.sun.istack.internal.NotNull;
 import lombok.Getter;
 import lombok.NonNull;
 import org.springframework.data.redis.connection.RedisStringCommands;
@@ -85,7 +84,7 @@ public class RedisTemplateSimpleDistributedLock implements Lock {
     }
 
     @Override
-    public boolean tryLock(long time, @NotNull TimeUnit unit) throws InterruptedException {
+    public boolean tryLock(long time, @NonNull TimeUnit unit) throws InterruptedException {
         long waitMs = unit.toMillis(time);
         boolean locked = tryLock();
         while (!locked && waitMs > 0) {
