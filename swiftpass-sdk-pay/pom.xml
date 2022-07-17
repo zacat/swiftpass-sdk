@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <version>${parent.version}</version>
+    <version>1.0.1</version>
     <artifactId>swiftpass-sdk-pay</artifactId>
     <name>威富通聚合支付 - Java SDK</name>
     <description>威富通合支付 - 开发Java SDK模块</description>
@@ -31,10 +31,12 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcpkix-jdk15on</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
