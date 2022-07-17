@@ -1,6 +1,7 @@
-package com.zoeyun.swift.sdk.pay.bean.request.wap;
+package com.zoeyun.swift.sdk.pay.bean.request.micropay;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.zoeyun.swift.sdk.common.annotation.Required;
 import com.zoeyun.swift.sdk.pay.bean.BasePayRequest;
 import com.zoeyun.swift.sdk.pay.config.PayConfig;
 import com.zoeyun.swift.sdk.pay.exception.PayException;
@@ -14,14 +15,18 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @XStreamAlias("xml")
-public class CloseOrderRequest extends BasePayRequest {
+public class AuthCodeRequest extends BasePayRequest {
 
-    @XStreamAlias("out_trade_no")
-    String outTradeNo;
+    @XStreamAlias("sub_appid")
+    String subAppid;
+
+    @Required
+    @XStreamAlias("auth_code")
+    String authCode;
 
     @Override
     public void checkAndSign(PayConfig config) throws PayException {
-        this.service = "unified.trade.close";
+        this.service = "unified.tools.authcodetoopenid";
         super.checkAndSign(config);
     }
 
@@ -32,6 +37,7 @@ public class CloseOrderRequest extends BasePayRequest {
 
     @Override
     protected void storeMap(Map<String, String> map) {
-        map.put("out_trade_no", outTradeNo);
+        map.put("sub_appid",authCode);
+        map.put("auth_code",subAppid);
     }
 }

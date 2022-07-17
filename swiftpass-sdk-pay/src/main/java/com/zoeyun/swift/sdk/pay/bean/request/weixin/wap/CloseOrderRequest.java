@@ -1,7 +1,6 @@
-package com.zoeyun.swift.sdk.pay.bean.request.micropay;
+package com.zoeyun.swift.sdk.pay.bean.request.weixin.wap;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.zoeyun.swift.sdk.common.annotation.Required;
 import com.zoeyun.swift.sdk.pay.bean.BasePayRequest;
 import com.zoeyun.swift.sdk.pay.config.PayConfig;
 import com.zoeyun.swift.sdk.pay.exception.PayException;
@@ -15,18 +14,14 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @XStreamAlias("xml")
-public class AuthCodeOpenRequest extends BasePayRequest {
+public class CloseOrderRequest extends BasePayRequest {
 
-    @XStreamAlias("sub_appid")
-    String subAppid;
-
-    @Required
-    @XStreamAlias("auth_code")
-    String authCode;
+    @XStreamAlias("out_trade_no")
+    String outTradeNo;
 
     @Override
     public void checkAndSign(PayConfig config) throws PayException {
-        this.service = "unified.tools.authcodetoopenid";
+        this.service = "unified.trade.close";
         super.checkAndSign(config);
     }
 
@@ -37,7 +32,6 @@ public class AuthCodeOpenRequest extends BasePayRequest {
 
     @Override
     protected void storeMap(Map<String, String> map) {
-        map.put("sub_appid",authCode);
-        map.put("auth_code",subAppid);
+        map.put("out_trade_no", outTradeNo);
     }
 }

@@ -39,6 +39,11 @@ import java.util.Map;
 public abstract class BasePayResult implements Serializable {
     private static final long serialVersionUID = 7672723031289514004L;
 
+    /**
+     * 字符集
+     */
+    @XStreamAlias("charset")
+    protected String charset;
 
     /**
      * 返回状态码.
@@ -90,6 +95,12 @@ public abstract class BasePayResult implements Serializable {
      */
     @XStreamAlias("sign")
     private String sign;
+
+    /**
+     * 签名.
+     */
+    @XStreamAlias("sign_type")
+    private String signType;
 
     //以下为辅助属性
     /**
@@ -164,6 +175,7 @@ public abstract class BasePayResult implements Serializable {
         mchId = readXmlString(d, "mch_id");
         nonceStr = readXmlString(d, "nonce_str");
         sign = readXmlString(d, "sign");
+        signType = readXmlString(d, "sign_type");
     }
 
     protected static Boolean readXmlBoolean(Node d, String tagName) {
@@ -173,6 +185,7 @@ public abstract class BasePayResult implements Serializable {
         }
         return Boolean.parseBoolean(content);
     }
+
     protected static Integer readXmlInteger(Node d, String tagName) {
         String content = readXmlString(d, tagName);
         if (content == null || content.trim().length() == 0) {
@@ -340,15 +353,14 @@ public abstract class BasePayResult implements Serializable {
     /**
      * 校验返回结果签名.
      *
-     * @param payService the  pay service
-     * @param signType     签名类型
+     * @param payService   the  pay service
      * @param checkSuccess 是否同时检查结果是否成功
      * @throws PayException the wx pay exception
      */
-    public void checkResult(PayService payService, String signType, boolean checkSuccess) throws PayException {
+    public void checkResult(PayService payService, boolean checkSuccess) throws PayException {
         //校验返回结果签名
         Map<String, String> map = toMap();
-        if (getSign() != null && !SignUtils.checkSign(map, signType, payService.getConfig().getRsaPubKey())) {
+        if (getSign() != null && !SignUtils.checkSign(map, this.getSignType(), payService.getConfig().getRsaPubKey())) {
             this.getLogger().debug("校验结果签名失败，参数：{}", map);
             throw new PayException("参数格式校验错误！");
         }

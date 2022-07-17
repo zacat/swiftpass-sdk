@@ -11,7 +11,7 @@ import org.w3c.dom.Document;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @XStreamAlias("xml")
-public class AuthCodeOpenResult extends BasePayResult {
+public class AuthCodeResult extends BasePayResult {
 
     @XStreamAlias("openid")
     String openid;

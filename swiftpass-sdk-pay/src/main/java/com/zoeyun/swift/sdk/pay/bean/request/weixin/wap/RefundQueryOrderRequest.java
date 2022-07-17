@@ -1,4 +1,4 @@
-package com.zoeyun.swift.sdk.pay.bean.request.wap;
+package com.zoeyun.swift.sdk.pay.bean.request.weixin.wap;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.zoeyun.swift.sdk.common.annotation.Required;

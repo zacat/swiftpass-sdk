@@ -45,4 +45,11 @@ public interface PayService {
      * @throws PayException the wx pay exception
      */
     String post(String url, String requestStr) throws PayException;
+
+
+    WeixinWapPayService getWeixinWapPayService();
+
+    MicroPayService getMicroPayService();
+
+    UnifiedPayService getUnifiedPayService();
 }

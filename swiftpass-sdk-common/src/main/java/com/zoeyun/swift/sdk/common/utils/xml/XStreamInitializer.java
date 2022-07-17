@@ -81,8 +81,9 @@ public class XStreamInitializer {
         // setup proper security by limiting which classes can be loaded by XStream
         xstream.addPermission(NoTypePermission.NONE);
         xstream.addPermission(new WildcardTypePermission(new String[]{
-                "com.zoeyun.swift.**"
+                "com.zoeyun.swift.sdk.common.**", "com.zoeyun.swift.sdk.pay.**"
         }));
+
         xstream.setClassLoader(Thread.currentThread().getContextClassLoader());
         return xstream;
     }
