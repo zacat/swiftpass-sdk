@@ -1,4 +1,4 @@
-package com.zoeyun.swift.sdk.pay.bean.result.micropay;
+package com.zoeyun.swift.sdk.pay.bean.result.unified;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.zoeyun.swift.sdk.pay.bean.BasePayResult;
@@ -12,8 +12,12 @@ import org.w3c.dom.Document;
 @NoArgsConstructor
 @XStreamAlias("xml")
 public class CloseOrderResult extends BasePayResult {
+
+    @XStreamAlias("code")
+    String code;
+
     @Override
     protected void loadXml(Document d) {
-
+        code = readXmlString(d, "code");
     }
 }

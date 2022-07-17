@@ -1,4 +1,4 @@
-package com.zoeyun.swift.sdk.pay.bean.request.micropay;
+package com.zoeyun.swift.sdk.pay.bean.request.unified;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.zoeyun.swift.sdk.pay.bean.BasePayRequest;
