@@ -47,9 +47,31 @@ public interface PayService {
     String post(String url, String requestStr) throws PayException;
 
 
+    /**
+     * 微信WAP支付功能
+     *
+     * @return
+     */
     WxWapPayService getWxWapPayService();
 
+    /**
+     * 微信APP支付功能
+     *
+     * @return
+     */
+    WxAppPayService getWxAppPaySercice();
+
+    /**
+     * 统一付款码支付功能
+     *
+     * @return
+     */
     MicroPayService getMicroPayService();
 
+    /**
+     * 统一付扫码支付功能
+     *
+     * @return
+     */
     UnifiedPayService getUnifiedPayService();
 }

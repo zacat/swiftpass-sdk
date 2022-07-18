@@ -1,13 +1,14 @@
 package com.zoeyun.swift.sdk.pay.service;
 
-
-import com.zoeyun.swift.sdk.pay.bean.request.wx.wap.*;
-import com.zoeyun.swift.sdk.pay.bean.result.wx.wap.*;
+import com.zoeyun.swift.sdk.pay.bean.request.wx.app.*;
+import com.zoeyun.swift.sdk.pay.bean.result.wx.app.*;
 import com.zoeyun.swift.sdk.pay.exception.PayException;
 
-public interface WxWapPayService {
+public interface WxAppPayService {
 
     UnifiedOrderResult unifiedOrder(UnifiedOrderRequest request) throws PayException;
+
+    UnifiedRawOrderResult unifiedRawOrder(UnifiedRawOrderRequest request) throws PayException;
 
     QueryOrderResult queryOrder(QueryOrderRequest request) throws PayException;
 

@@ -1,25 +1,32 @@
 package com.zoeyun.swift.sdk.pay.service.impl;
 
 import com.zoeyun.swift.sdk.pay.bean.BasePayResult;
-
-import com.zoeyun.swift.sdk.pay.bean.request.wx.wap.*;
-import com.zoeyun.swift.sdk.pay.bean.result.wx.wap.*;
+import com.zoeyun.swift.sdk.pay.bean.request.wx.app.*;
+import com.zoeyun.swift.sdk.pay.bean.result.wx.app.*;
 import com.zoeyun.swift.sdk.pay.exception.PayException;
 import com.zoeyun.swift.sdk.pay.service.PayService;
-import com.zoeyun.swift.sdk.pay.service.WxWapPayService;
+import com.zoeyun.swift.sdk.pay.service.WxAppPayService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class WxWapPayServiceImpl implements WxWapPayService {
+public class WxAppPayServiceImpl implements WxAppPayService {
 
     private final PayService payService;
-
 
     @Override
     public UnifiedOrderResult unifiedOrder(UnifiedOrderRequest request) throws PayException {
         request.checkAndSign(payService.getConfig());
         String responseContent = this.payService.post(payService.getPayBaseUrl(), request.toXML());
         UnifiedOrderResult result = BasePayResult.fromXML(responseContent, UnifiedOrderResult.class);
+        result.checkResult(payService, true);
+        return result;
+    }
+
+    @Override
+    public UnifiedRawOrderResult unifiedRawOrder(UnifiedRawOrderRequest request) throws PayException {
+        request.checkAndSign(payService.getConfig());
+        String responseContent = this.payService.post(payService.getPayBaseUrl(), request.toXML());
+        UnifiedRawOrderResult result = BasePayResult.fromXML(responseContent, UnifiedRawOrderResult.class);
         result.checkResult(payService, true);
         return result;
     }

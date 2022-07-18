@@ -1,10 +1,7 @@
 package com.zoeyun.swift.sdk.pay.service.impl;
 
 import com.zoeyun.swift.sdk.pay.config.PayConfig;
-import com.zoeyun.swift.sdk.pay.service.MicroPayService;
-import com.zoeyun.swift.sdk.pay.service.PayService;
-import com.zoeyun.swift.sdk.pay.service.UnifiedPayService;
-import com.zoeyun.swift.sdk.pay.service.WxWapPayService;
+import com.zoeyun.swift.sdk.pay.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,9 +12,11 @@ public abstract class BasePayServiceImpl implements PayService {
     PayConfig payConfig;
 
 
+    WxAppPayService wxAppPayService = new WxAppPayServiceImpl(this);
     WxWapPayService wxWapPayService = new WxWapPayServiceImpl(this);
     MicroPayService microPayService = new MicroPayServiceImpl(this);
     UnifiedPayService unifiedPayService = new UnifiedPayServiceImpl(this);
+
 
     @Override
     public String getPayBaseUrl() {
@@ -51,5 +50,11 @@ public abstract class BasePayServiceImpl implements PayService {
     @Override
     public UnifiedPayService getUnifiedPayService() {
         return unifiedPayService;
+    }
+
+
+    @Override
+    public WxAppPayService getWxAppPaySercice() {
+        return wxAppPayService;
     }
 }
