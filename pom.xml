@@ -141,11 +141,11 @@
             </dependency>
 
 
-                        <dependency>
-                            <groupId>com.google.guava</groupId>
-                            <artifactId>guava</artifactId>
-                            <version>31.1-jre</version>
-                        </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>31.1-jre</version>
+            </dependency>
 
 
             <dependency>
@@ -187,14 +187,14 @@
                 <version>1.2.3</version>
                 <scope>test</scope>
             </dependency>
-            <!--
+
             <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
                 <version>4.2.3</version>
                 <scope>test</scope>
-            </deendency>
-            -->
+            </dependency>
+
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
