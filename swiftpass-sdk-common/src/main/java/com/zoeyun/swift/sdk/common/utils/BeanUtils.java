@@ -1,6 +1,6 @@
 package com.zoeyun.swift.sdk.common.utils;
 
-import com.google.common.collect.Lists;
+
 import com.zoeyun.swift.sdk.common.annotation.Required;
 import com.zoeyun.swift.sdk.common.exception.SdkErrorException;
 import org.apache.commons.lang3.StringUtils;

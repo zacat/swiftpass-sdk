@@ -80,11 +80,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--
             <dependency>
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>qrcode-utils</artifactId>
                 <version>1.1</version>
             </dependency>
+            -->
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
@@ -138,13 +140,13 @@
                 <version>1.7.36</version>
             </dependency>
 
-<!--
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>31.1-jre</version>
-            </dependency>
--->
+
+                        <dependency>
+                            <groupId>com.google.guava</groupId>
+                            <artifactId>guava</artifactId>
+                            <version>31.1-jre</version>
+                        </dependency>
+
 
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
@@ -185,12 +187,14 @@
                 <version>1.2.3</version>
                 <scope>test</scope>
             </dependency>
+            <!--
             <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
                 <version>4.2.3</version>
                 <scope>test</scope>
-            </dependency>
+            </deendency>
+            -->
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
@@ -225,12 +229,14 @@
                 <version>${jetty.version}</version>
                 <scope>test</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-guava</artifactId>
                 <version>3.0.0</version>
                 <scope>test</scope>
             </dependency>
+
             <dependency>
                 <groupId>com.github.dreamhead</groupId>
                 <artifactId>moco-runner</artifactId>
