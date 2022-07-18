@@ -1,4 +1,4 @@
-package com.zoeyun.swift.sdk.pay.bean.result.weixin.wap;
+package com.zoeyun.swift.sdk.pay.bean.result.wx.wap;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.zoeyun.swift.sdk.pay.bean.BasePayResult;
@@ -11,9 +11,13 @@ import org.w3c.dom.Document;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @XStreamAlias("xml")
-public class CloseOrderResult extends BasePayResult {
+public class UnifiedOrderResult extends BasePayResult {
+
+    @XStreamAlias("pay_info")
+    private String payInfo;
+
     @Override
     protected void loadXml(Document d) {
-
+        this.payInfo = readXmlString(d, "pay_info");
     }
 }

@@ -3,7 +3,9 @@ package com.zoeyun.swift.sdk.pay.service.impl;
 import com.zoeyun.swift.sdk.pay.bean.BasePayResult;
 
 import com.zoeyun.swift.sdk.pay.bean.request.weixin.wap.*;
+import com.zoeyun.swift.sdk.pay.bean.request.wx.wap.*;
 import com.zoeyun.swift.sdk.pay.bean.result.weixin.wap.*;
+import com.zoeyun.swift.sdk.pay.bean.result.wx.wap.*;
 import com.zoeyun.swift.sdk.pay.exception.PayException;
 import com.zoeyun.swift.sdk.pay.service.PayService;
 import com.zoeyun.swift.sdk.pay.service.WxWapPayService;

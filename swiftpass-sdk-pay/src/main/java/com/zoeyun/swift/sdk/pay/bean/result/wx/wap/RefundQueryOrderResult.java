@@ -1,4 +1,4 @@
-package com.zoeyun.swift.sdk.pay.bean.result.weixin.wap;
+package com.zoeyun.swift.sdk.pay.bean.result.wx.wap;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.zoeyun.swift.sdk.pay.bean.BasePayResult;
