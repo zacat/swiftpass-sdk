@@ -4,7 +4,7 @@ import com.zoeyun.swift.sdk.pay.config.PayConfig;
 import com.zoeyun.swift.sdk.pay.service.MicroPayService;
 import com.zoeyun.swift.sdk.pay.service.PayService;
 import com.zoeyun.swift.sdk.pay.service.UnifiedPayService;
-import com.zoeyun.swift.sdk.pay.service.WeixinWapPayService;
+import com.zoeyun.swift.sdk.pay.service.WxWapPayService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ public abstract class BasePayServiceImpl implements PayService {
     PayConfig payConfig;
 
 
-    WeixinWapPayService weixinWapPayService = new WeixinWapPayServiceImpl(this);
+    WxWapPayService wxWapPayService = new WxWapPayServiceImpl(this);
     MicroPayService microPayService = new MicroPayServiceImpl(this);
     UnifiedPayService unifiedPayService = new UnifiedPayServiceImpl(this);
 
@@ -39,8 +39,8 @@ public abstract class BasePayServiceImpl implements PayService {
     }
 
     @Override
-    public WeixinWapPayService getWeixinWapPayService() {
-        return weixinWapPayService;
+    public WxWapPayService getWxWapPayService() {
+        return wxWapPayService;
     }
 
     @Override

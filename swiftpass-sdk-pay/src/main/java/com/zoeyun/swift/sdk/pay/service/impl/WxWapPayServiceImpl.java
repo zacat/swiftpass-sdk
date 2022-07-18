@@ -6,11 +6,11 @@ import com.zoeyun.swift.sdk.pay.bean.request.weixin.wap.*;
 import com.zoeyun.swift.sdk.pay.bean.result.weixin.wap.*;
 import com.zoeyun.swift.sdk.pay.exception.PayException;
 import com.zoeyun.swift.sdk.pay.service.PayService;
-import com.zoeyun.swift.sdk.pay.service.WeixinWapPayService;
+import com.zoeyun.swift.sdk.pay.service.WxWapPayService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class WeixinWapPayServiceImpl implements WeixinWapPayService {
+public class WxWapPayServiceImpl implements WxWapPayService {
 
     private final PayService payService;
 

@@ -47,7 +47,7 @@ public interface PayService {
     String post(String url, String requestStr) throws PayException;
 
 
-    WeixinWapPayService getWeixinWapPayService();
+    WxWapPayService getWxWapPayService();
 
     MicroPayService getMicroPayService();
 
